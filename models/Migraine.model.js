@@ -45,6 +45,11 @@ const migraineSchema = new Schema(
       type: String,
       maxLength: 1000,
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     // `createdAt` and `updatedAt`
