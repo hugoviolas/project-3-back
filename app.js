@@ -5,6 +5,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
+const { application } = require("express");
 
 const app = express();
 
@@ -21,10 +22,10 @@ app.use(
   })
 );
 
-app.use("/api", require("./routes/index"));
-app.use("/api/auth", require("./routes/auth"));
+app.use("/api", require("./routes/index.routes"));
+app.use("/api/auth", require("./routes/auth.routes"));
+app.use("/api/migraines", require("./routes/migraines.routes"));
 
-require("./error-handling/index")(app)
-
+require("./error-handling/index")(app);
 
 module.exports = app;
