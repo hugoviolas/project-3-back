@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
-    userName: {
+    username: {
       type: String,
       required: true,
       unique: true,
@@ -21,11 +21,10 @@ const userSchema = new Schema(
     },
     gender: {
       type: String,
-      enum: ["female", "male", "non-binary/gender fluid", "other"],
+      enum: ["female", "male", "nb-gf", "other"],
     },
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 );
