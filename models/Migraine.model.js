@@ -15,9 +15,10 @@ const migraineSchema = new Schema(
             min: 0,
             max: 10
         },
-        migraine_type: {
+        phases: [{
             type: String,
-        },
+            enum: ["Prodrome", "Aura", "Headache", "Postdrome", "Other/Unsure"]
+        }],
         user: {
             type: Schema.Types.ObjectId,
             ref: "User",
@@ -38,7 +39,6 @@ const migraineSchema = new Schema(
             type: String,
             maxLength: 1000
         }
-
     },
     {
         // `createdAt` and `updatedAt`
