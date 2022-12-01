@@ -8,7 +8,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-  console.log(req.body);
+  console.log("body: ", req.body);
   const newMigraine = await Migraine.create(req.body);
   res.status(201).json(newMigraine);
 });
