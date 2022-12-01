@@ -17,4 +17,14 @@ router.post("/", isAuthenticated, async (req, res, next) => {
   res.status(201).json(newMigraine);
 });
 
+router.get("/:id", isAuthenticated, async (req, res, next) => {
+  try {
+    const oneMigraine = await Migraine.findById(req.params.id)
+
+    res.status(200).json(oneMigraine)
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router;
