@@ -11,7 +11,6 @@ const trackerSubCategorySchema = new Schema({
   },
   picture: {
     type: String,
-    required: true,
   },
 });
 

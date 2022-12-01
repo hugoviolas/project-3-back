@@ -1,0 +1,98 @@
+[
+  {
+    "name": "White wine",
+    "subcategory": "Drinks"
+  },
+  {
+    "name": "Red wine",
+    "subcategory": "Drinks"
+  },
+  {
+    "name": "Beer",
+    "subcategory": "Drinks"
+  },
+  {
+    "name": "Spirits",
+    "subcategory": "Drinks"
+  },
+  {
+    "name": "Soda",
+    "subcategory": "Drinks"
+  },
+  {
+    "name": "Tea or coffee",
+    "subcategory": "Drinks"
+  },
+  {
+    "name": "Fast food",
+    "subcategory": "Foods"
+  },
+  {
+    "name": "Intense sport",
+    "subcategory": "Sports"
+  },
+  {
+    "name": "Intense sport",
+    "subcategory": "Sports"
+  },
+  {
+    "name": "Computer work",
+    "subcategory": "Work"
+  },
+  {
+    "name": "Physical work",
+    "subcategory": "Work"
+  },
+  {
+    "name": "Stress",
+    "subcategory": "Psychological"
+  },
+  {
+    "name": "Anxiety",
+    "subcategory": "Psychological"
+  },
+  {
+    "name": "Jet lag",
+    "subcategory": "Psychological"
+  },
+  {
+    "name": "Tiredness",
+    "subcategory": "Psychological"
+  },
+  {
+    "name": "Fever",
+    "subcategory": "Physical"
+  },
+  {
+    "name": "Lack of sleep",
+    "subcategory": "Physical"
+  },
+  {
+    "name": "Bad posture",
+    "subcategory": "Physical"
+  },
+  {
+    "name": "Cold temperature",
+    "subcategory": "Weather"
+  },
+  {
+    "name": "Rain",
+    "subcategory": "Weather"
+  },
+  {
+    "name": "Loud noises",
+    "subcategory": "Stimuli"
+  },
+  {
+    "name": "Bright lights",
+    "subcategory": "Stimuli"
+  },
+  {
+    "name": "Flickering screen",
+    "subcategory": "Stimuli"
+  },
+  {
+    "name": "Strong smells",
+    "subcategory": "Stimuli"
+  }
+]
