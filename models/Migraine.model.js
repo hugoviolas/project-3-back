@@ -57,4 +57,5 @@ const migraineSchema = new Schema(
   }
 );
 const Migraine = model("Migraine", migraineSchema);
+
 module.exports = Migraine;

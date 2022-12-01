@@ -13,6 +13,7 @@ const saltRounds = 10;
  */
 
 router.post("/signup", async (req, res, next) => {
+  console.log(req.body);
   const { username, email, password, birth, gender } = req.body;
   if (email === "" || username === "" || password === "") {
     res
@@ -112,7 +113,7 @@ router.post("/signin", async (req, res, next) => {
 
 router.get("/me", isAuthenticated, async (req, res, next) => {
   // console.log("req payload", req.payload);
-  const user = await User.findById(req.payload.id).select("-password");
+  const user = await User.findById(req.user.id).select("-password");
   res.status(200).json(user);
 });
 
