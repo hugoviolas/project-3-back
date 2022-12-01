@@ -4,8 +4,10 @@ const protectRoute = require("../middlewares/protectRoute");
 const Migraine = require("../models/Migraine.model");
 const Tracker = require("../models/Tracker.model");
 
-router.get("/", (req, res, next) => {
-  res.send("Migraines route");
+router.get("/", isAuthenticated, async (req, res, next) => {
+  const userID = req.user.id;
+  const allMigraines = await Migraine.find({ user: userID });
+  res.send(200).json(allMigraines);
 });
 
 router.post("/", isAuthenticated, async (req, res, next) => {
