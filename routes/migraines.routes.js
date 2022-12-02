@@ -30,13 +30,15 @@ router.post("/", isAuthenticated, async (req, res, next) => {
 // See the details of one migraine
 router.get("/:id", isAuthenticated, async (req, res, next) => {
   try {
-    const oneMigraine = await Migraine.findById(req.params.id)
+    const oneMigraine = await Migraine.findById(req.params.id).populate(
+      "selected_trackers"
+    );
 
-    res.status(200).json(oneMigraine)
+    res.status(200).json(oneMigraine);
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
 
 // Edit a migraine
 
