@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const isAuthenticated = require("../middlewares/jwt.middleware");
+const protectRoute = require("../middlewares/protectRoute");
 const User = require("../models/User.model");
 const saltRounds = 10;
 
@@ -112,9 +113,33 @@ router.post("/signin", async (req, res, next) => {
 });
 
 router.get("/me", isAuthenticated, async (req, res, next) => {
-  // console.log("req payload", req.payload);
   const user = await User.findById(req.user.id).select("-password");
   res.status(200).json(user);
+});
+
+// Edit user credentials
+router.patch("/edit", isAuthenticated, async (req, res, next) => {
+  try {
+    const userID = req.user.id;
+    const userInfos = await User.findById(userID);
+    const newDatas = req.body;
+    if (newDatas.username === "") {
+      newDatas.username = userInfos.username;
+    }
+    if (newDatas.email === "") {
+      newDatas.email = userInfos.email;
+    }
+    if (newDatas.password === "") {
+      newDatas.password = userInfos.password;
+    } else {
+      const salt = bcrypt.genSaltSync(saltRounds);
+      newDatas.password = await bcrypt.hashSync(newDatas.password, salt);
+    }
+    const newUser = await User.findByIdAndUpdate(userID, newDatas);
+    res.status(201).json(newUser);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;

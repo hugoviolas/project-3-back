@@ -46,7 +46,7 @@ router.get("/:id", isAuthenticated, async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     await Migraine.findByIdAndRemove(req.params.id);
-    res.status(200)
+    res.status(200);
   } catch (error) {
     next(err);
   }
