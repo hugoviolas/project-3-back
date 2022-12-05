@@ -7,7 +7,7 @@ const trackerSchema = new Schema({
   },
   subcategory: {
     type: Schema.Types.ObjectId,
-    ref: "SubCategory",
+    ref: "TrackerSubCategory",
     required: true,
   },
 });

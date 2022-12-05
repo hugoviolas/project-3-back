@@ -8,9 +8,17 @@ const Tracker = require("../models/Tracker.model");
 router.get("/", isAuthenticated, async (req, res, next) => {
   try {
     const userID = req.user.id;
-    const allMigraines = await Migraine.find({ user: userID }).sort({
-      start_date: -1,
-    });
+    console.log(userID);
+    const allMigraines = await Migraine.find({ user: userID })
+      .sort({
+        start_date: -1,
+      })
+      .populate({
+        path: "selected_trackers",
+        populate: { path: "subcategory", populate: { path: "category" } },
+      })
+      .exec();
+
     res.status(200).json(allMigraines);
   } catch (error) {
     next(error);
