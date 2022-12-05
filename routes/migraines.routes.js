@@ -7,7 +7,6 @@ const Tracker = require("../models/Tracker.model");
 // Get all migraines for a user
 router.get("/", isAuthenticated, async (req, res, next) => {
   try {
-    console.log("coucou");
     const userID = req.user.id;
     const allMigraines = await Migraine.find({ user: userID }).sort({
       start_date: -1,
@@ -44,7 +43,7 @@ router.get("/:id", isAuthenticated, async (req, res, next) => {
 });
 
 // Edit a migraine
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", isAuthenticated, async (req, res, next) => {
   try {
     const id = req.params.id;
     const updatedMigraine = await Migraine.findByIdAndUpdate(id, req.body);
