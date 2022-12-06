@@ -102,7 +102,7 @@ router.post("/signin", async (req, res, next) => {
 
       res.status(200).json({ authToken });
     } else {
-      res.status(401).json("Can you check your typos ?");
+      res.status(401).json({ message: "Can you check your typos ?" });
     }
   } catch (error) {
     console.log(error);
