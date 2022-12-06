@@ -129,6 +129,12 @@ router.patch("/edit", isAuthenticated, async (req, res, next) => {
     if (newDatas.email === "") {
       newDatas.email = userInfos.email;
     }
+    if (newDatas.birth === "") {
+      newDatas.birth = userInfos.birth;
+    }
+    if (newDatas.gender === "") {
+      newDatas.gender = userInfos.gender;
+    }
     if (newDatas.password === "") {
       newDatas.password = userInfos.password;
     } else {
