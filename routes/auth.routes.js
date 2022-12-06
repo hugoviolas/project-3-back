@@ -146,7 +146,7 @@ router.delete("/delete", isAuthenticated, async (req, res, next) => {
   try {
     const userID = req.user.id;
     const deletedUser = await User.findByIdAndDelete(userID);
-    res.send(200).json(deletedUser);
+    res.status(200).json(deletedUser);
   } catch (error) {
     next(error);
   }
