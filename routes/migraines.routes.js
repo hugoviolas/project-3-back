@@ -8,7 +8,6 @@ const Tracker = require("../models/Tracker.model");
 router.get("/", isAuthenticated, async (req, res, next) => {
   try {
     const userID = req.user.id;
-    console.log(userID);
     const allMigraines = await Migraine.find({ user: userID })
       .sort({
         start_date: -1,
