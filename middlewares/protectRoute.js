@@ -4,7 +4,6 @@ const User = require("../models/User.model");
 const protectRoute = (req, res, next) => {
   console.log("protected route");
   const header = req.headers["authorization"];
-  console.log(req.headers);
 
   if (header !== undefined) {
     const bearer = header.split(" ");
