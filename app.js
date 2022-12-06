@@ -26,6 +26,7 @@ app.use("/api", require("./routes/index.routes"));
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/migraines", require("./routes/migraines.routes"));
 app.use("/api/trackers", require("./routes/trackers.routes"));
+app.use("/api/phases", require("./routes/phases.routes"));
 
 require("./error-handling/index")(app);
 

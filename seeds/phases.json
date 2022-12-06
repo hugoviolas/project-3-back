@@ -1,0 +1,28 @@
+[
+  {
+    "value": "Prodrome",
+    "status": false,
+    "img": "/images/formImages/prodrome.svg"
+  },
+  {
+    "value": "Postdrome",
+    "status": false,
+    "img": "/images/formImages/postdrome.svg"
+  },
+  {
+    "value": "Aura",
+    "status": false,
+    "img": "/images/formImages/aura.svg"
+  },
+
+  {
+    "value": "Headache",
+    "status": false,
+    "img": "/images/formImages/headache.svg"
+  },
+  {
+    "value": "Other/Unsure",
+    "status": false,
+    "img": "/images/formImages/other.svg"
+  }
+]
