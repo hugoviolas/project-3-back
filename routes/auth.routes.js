@@ -14,10 +14,9 @@ const saltRounds = 10;
  */
 
 router.post("/signup", async (req, res, next) => {
-  console.log(req.body);
   const { username, email, password, birth, gender } = req.body;
   if (email === "" || username === "" || password === "") {
-    res
+    return res
       .status(400)
       .json({ message: "I need some informations to work with here!" });
   }
@@ -50,6 +49,8 @@ router.post("/signup", async (req, res, next) => {
       username,
       email,
       password: hashedPass,
+      birth,
+      gender,
     });
 
     const user = createdUser.toObject();
@@ -61,21 +62,21 @@ router.post("/signup", async (req, res, next) => {
     if (error instanceof mongoose.Error.ValidationError) {
       return res.status(400).json({ message: error.message });
     }
-    res.status(500).json({ message: "Sweet, sweet 500." });
+    next(error);
   }
 });
 
 router.post("/signin", async (req, res, next) => {
   const { email, password } = req.body;
   if (email === "" || password === "") {
-    res
+    return res
       .status(400)
       .json({ message: "I need some informations to work with here!" });
   }
   try {
     const foundUser = await User.findOne({ email });
     if (!foundUser) {
-      res.status.apply(401).json({ message: "You're not yourself." });
+      res.status(401).json({ message: "You're not yourself." });
       return;
     }
     const goodPass = bcrypt.compareSync(password, foundUser.password);
@@ -120,9 +121,11 @@ router.get("/me", isAuthenticated, async (req, res, next) => {
 // Edit user credentials
 router.patch("/edit", isAuthenticated, async (req, res, next) => {
   try {
+    console.log("========", req.user.id);
     const userID = req.user.id;
     const userInfos = await User.findById(userID);
     const newDatas = req.body;
+
     if (newDatas.username === "") {
       newDatas.username = userInfos.username;
     }
@@ -142,7 +145,7 @@ router.patch("/edit", isAuthenticated, async (req, res, next) => {
       newDatas.password = await bcrypt.hashSync(newDatas.password, salt);
     }
     const newUser = await User.findByIdAndUpdate(userID, newDatas);
-    res.status(201).json(newUser);
+    return res.status(201).json(newUser);
   } catch (error) {
     next(error);
   }
