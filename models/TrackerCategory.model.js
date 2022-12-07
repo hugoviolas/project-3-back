@@ -5,6 +5,9 @@ const trackerCategorySchema = new Schema({
     type: String,
     required: true,
   },
+  picture: {
+    type: String,
+  }
 });
 
 const TrackerCategory = model("TrackerCategory", trackerCategorySchema);
