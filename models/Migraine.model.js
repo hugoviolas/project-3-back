@@ -31,12 +31,6 @@ const migraineSchema = new Schema(
         ref: "Tracker",
       },
     ],
-    selected_treatments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Treatment",
-      },
-    ],
     main_trigger: {
       type: Schema.Types.ObjectId,
       ref: "Tracker",

@@ -8,10 +8,7 @@ const trackerSubCategorySchema = new Schema({
   category: {
     type: Schema.Types.ObjectId,
     ref: "TrackerCategory",
-  },
-  picture: {
-    type: String,
-  },
+  }
 });
 
 const TrackerSubCategory = model(
