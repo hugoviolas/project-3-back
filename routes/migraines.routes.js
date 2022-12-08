@@ -2,8 +2,6 @@ const router = require("express").Router();
 const isAuthenticated = require("../middlewares/jwt.middleware");
 const protectRoute = require("../middlewares/protectRoute");
 const Migraine = require("../models/Migraine.model");
-const Tracker = require("../models/Tracker.model");
-const mongoose = require("mongoose");
 
 // Get all migraines for a user
 router.get("/", isAuthenticated, async (req, res, next) => {
