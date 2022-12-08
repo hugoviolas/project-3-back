@@ -1,14 +1,18 @@
 [
   {
-    "name": "Nutrition"
+    "name": "Nutrition",
+    "picture": "/images/formImages/nutrition.svg"
   },
   {
-    "name": "Activities"
+    "name": "Activities",
+    "picture": "/images/formImages/activities.svg"
   },
   {
-    "name": "Environment"
+    "name": "Environment",
+    "picture": "/images/formImages/environment.svg"
   },
   {
-    "name": "Health"
+    "name": "Health",
+    "picture": "/images/formImages/health.svg"
   }
 ]
