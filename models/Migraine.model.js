@@ -31,10 +31,6 @@ const migraineSchema = new Schema(
         ref: "Tracker",
       },
     ],
-    main_trigger: {
-      type: Schema.Types.ObjectId,
-      ref: "Tracker",
-    },
     notes: {
       type: String,
       maxLength: 1000,
