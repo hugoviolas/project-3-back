@@ -18,7 +18,6 @@ router.get("/", isAuthenticated, async (req, res, next) => {
         populate: { path: "subcategory", populate: { path: "category" } },
       })
       .exec();
-
     res.status(200).json(allMigraines);
   } catch (error) {
     next(error);
@@ -30,7 +29,7 @@ router.post("/", isAuthenticated, async (req, res, next) => {
   try {
     const data = req.body;
     data["user"] = req.user.id;
-    const newMigraine = await Migraine.create(req.body);
+    const newMigraine = await Migraine.create(data);
     res.status(201).json(newMigraine);
   } catch (error) {
     next(error);
