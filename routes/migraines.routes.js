@@ -67,7 +67,7 @@ router.put("/:id", isAuthenticated, async (req, res, next) => {
 });
 
 // Delete a migraine
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", isAuthenticated, async (req, res, next) => {
   try {
     await Migraine.findByIdAndRemove(req.params.id);
     res.status(200);

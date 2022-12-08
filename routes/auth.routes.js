@@ -121,7 +121,6 @@ router.get("/me", isAuthenticated, async (req, res, next) => {
 // Edit user credentials
 router.patch("/edit", isAuthenticated, async (req, res, next) => {
   try {
-    console.log("========", req.user.id);
     const userID = req.user.id;
     const userInfos = await User.findById(userID);
     const newDatas = req.body;
